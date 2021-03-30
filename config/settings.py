@@ -9,16 +9,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-try:
-    from .local_settings import *
-except ImportError:
-    pass
+SECRET_KEY = "4wq%kwlbxy3q!+g%gol=26cg=%(ol_gnya2e!*#lafrzis164)"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = ["dlquestion.herokuapp.com"]
+ALLOWED_HOSTS = ["https://dlquestion.herokuapp.com", "dlquestion.herokuapp.com"]
 
 # Application definition
 
@@ -31,9 +28,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # graphsql
-    'graphene_django',
 ]
 
 MIDDLEWARE = [
@@ -44,6 +38,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -76,14 +71,9 @@ DATABASES = {
     }
 }
 import dj_database_url
+
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
-
-
-# gtaphsql
-GRAPHENE = {
-    'SCHEMA': 'config.schema.schema'
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -121,9 +111,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # set upload files directory and url path
 MEDIA_URL = "/media/"
@@ -131,7 +119,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 LOGIN_URL = 'accounts:login'  # ログインしていないときのリダイレクト先
 LOGIN_REDIRECT_URL = 'question:question_title_list'  # ログイン後のリダイレクト先
-LOGOUT_REDIRECT_URL = 'accounts:login'   # ログアウト後のリダイレクト先
-
+LOGOUT_REDIRECT_URL = 'accounts:login'  # ログアウト後のリダイレクト先
 
 django_heroku.settings(locals())
