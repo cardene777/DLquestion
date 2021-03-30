@@ -15,9 +15,9 @@ except ImportError:
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = int(os.environ.get("DEBUG", default=0))
+DEBUG = False
 
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "questionex.herokuapp.com").split(" ")
+ALLOWED_HOSTS = ["questionex.herokuapp.com"]
 
 # Application definition
 
