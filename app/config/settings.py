@@ -17,7 +17,7 @@ except ImportError:
 # DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = ["questionex.herokuapp.com"]
+ALLOWED_HOSTS = ["dlquestionex.herokuapp.com"]
 
 # Application definition
 
@@ -120,6 +120,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # set upload files directory and url path
 MEDIA_URL = "/media/"
