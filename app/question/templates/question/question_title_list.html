@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}問題一覧{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <div class="bg-light p-3 p-sm-5 my-4 rounded">
+        <h1 class="display-4">QuestionTitleList</h1>
+        <hr class="my-4">
+        <p>作成した問題タイトルの一覧</p>
+      </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for question_title in question_titles %}
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ question_title.image.url }}" class="card-img-top" alt="Question Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ question_title.title }}</h5>
+                        <a href="{% url 'question:question_title_detail' question_title.pk %}" class="btn stretched-link" style="background-color: #77c7e2; color: #303f42;" tabindex="-1" role="button" aria-disabled="true">
+                            詳細
+                            <i class="fas fa-info-circle"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

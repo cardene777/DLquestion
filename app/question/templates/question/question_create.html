@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}問題タイトル作成{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <div class="bg-light p-3 p-sm-5 my-4 rounded">
+        <h1 class="display-4">QuestionTitleDelete</h1>
+        <hr class="my-4">
+        <p>作成した問題タイトルの作成</p>
+        <a href="{% url 'question:question_title_list' %}" class="btn" style="background-color: #77c7e2; color: #303f42;" tabindex="-1" role="button" aria-disabled="true">
+            一覧に戻る
+            <i class="fas fa-info-circle"></i>
+        </a>
+      </div>
+    </div>
+    <div class="container">
+        <form action="{% url 'question:question_title_create' %}" method="POST">
+            {% csrf_token %}
+            <p>{{ form.title }}</p>
+            <p>{{ form.about }}</p>
+            <h5 class="images">画像(任意) <i class="far fa-images"></i></h5>
+            <div class="image-upload images">
+                <p>{{ form.image }}</p>
+            </div>
+            <input type="submit" class="flat border2" value="作成!!!">
+        </form>
+    </div>
+{% endblock %}

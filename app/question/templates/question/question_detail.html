@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}問題{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="bg-light p-3 p-sm-5 my-4 rounded">
+            <h1 class="display-4">QuestionTitleDetail</h1>
+            <hr class="my-4">
+            <p>問題</p>
+        </div>
+    </div>
+    <div class="container">
+        {% for question in questions.title_question.all %}
+            {% if forloop.counter <= 1 %}
+                <p>{{ forloop.counter }}</p>
+                <p>{{ title }}</p>
+                <p>{{ question }}</p>
+                <p>{{ correct }}</p>
+                <div class="btns">
+                    <p>
+                        <a href="{% url 'question:question_detail' question.pk %}" class="btn" style="background-color: #77c7e2; color: #303f42;" tabindex="-1" role="button" aria-disabled="true">
+                            次へ
+                            <i class="fas fa-info-circle"></i>
+                        </a>
+                    </p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock %}

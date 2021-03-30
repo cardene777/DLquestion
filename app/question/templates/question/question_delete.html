@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}問題タイトル削除{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <div class="bg-light p-3 p-sm-5 my-4 rounded">
+        <h1 class="display-4">QuestionTitleDelete</h1>
+        <hr class="my-4">
+        <p>作成した問題タイトルの削除</p>
+        <a href="{% url 'question:question_title_detail' question_title.pk %}" class="btn stretched-link" style="background-color: #77c7e2; color: #303f42;" tabindex="-1" role="button" aria-disabled="true">
+            詳細に戻る
+            <i class="fas fa-info-circle"></i>
+        </a>
+      </div>
+    </div>
+    <div class="container update-div">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="cp_iptxt">
+                {{ form.title }}
+                <label>Question</label>
+                <span class="focus_line"><i></i></span>
+            </div>
+            <div class="cp_iptxt">
+                {{ form.about }}
+                <label>Context</label>
+                <span class="focus_line"><i></i></span>
+            </div>
+            <div class="cp_iptxt">
+                {{ form.image }}
+                <label>Tag</label>
+                <span class="focus_line"><i></i></span>
+            </div>
+            <div>
+                <input type="submit" value="削除！" onclick='return confirm("本当に削除しますか？");'>
+            </div>
+        </form>
+    </div>
+{% endblock %}

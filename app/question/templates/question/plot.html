@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}問題{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="bg-light p-3 p-sm-5 my-4 rounded">
+            <h1 class="display-4">Plot</h1>
+            <hr class="my-4">
+            <p>画像</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <img src="{% url 'question:plot_answer_time' %}" width=600 height=600 alt="プロット画像">
+            </div>
+            <div class="col-6">
+                <img src="{% url 'question:plot_judge' %}" width=600 height=600 alt="プロット画像">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
