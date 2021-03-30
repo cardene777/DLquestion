@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -131,3 +132,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 LOGIN_URL = 'accounts:login'  # ログインしていないときのリダイレクト先
 LOGIN_REDIRECT_URL = 'question:question_title_list'  # ログイン後のリダイレクト先
 LOGOUT_REDIRECT_URL = 'accounts:login'   # ログアウト後のリダイレクト先
+
+
+django_heroku.settings(locals())
