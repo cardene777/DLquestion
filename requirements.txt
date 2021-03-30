@@ -2,3 +2,5 @@ django
 whitenoise
 gunicorn
 matplotlib
+dj_database_url
+django_heroku
