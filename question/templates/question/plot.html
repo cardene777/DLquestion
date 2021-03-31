@@ -12,14 +12,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <img src="{% url 'question:plot_answer_time' %}" width=600 height=600 alt="プロット画像">
-            </div>
-            <div class="col-6">
-                <img src="{% url 'question:plot_judge' %}" width=600 height=600 alt="プロット画像">
-            </div>
-        </div>
+        <img src="{% url 'question:plot' %}" width=800 height=800 alt="プロット画像">
     </div>
 
 {% endblock %}

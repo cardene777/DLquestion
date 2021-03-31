@@ -28,6 +28,5 @@ urlpatterns = [
 
     # plot
     path("plot_list/", PlotView.as_view(), name="plot_list"),
-    path("plot_answer_time/", plot_answer_time, name="plot_answer_time"),
-    path("plot_judge/", plot_judge, name="plot_judge"),
+    path("plot", plot_figure, name="plot"),
 ]

@@ -1,0 +1,356 @@
+[
+  {
+    "model": "question.questiontitle",
+    "pk": 4,
+    "fields": {
+      "title": "グループ0-漢字読み1",
+      "about": "漢字が表示されるので、正しい読み仮名を書いてください。"
+    }
+  },
+  {
+    "model": "question.questiontitle",
+    "pk": 5,
+    "fields": {
+      "title": "グループ0-漢字読み2",
+      "about": "漢字が表示されるので、正しい読み仮名を書いてください。"
+    }
+  },
+  {
+    "model": "question.questiontitle",
+    "pk": 6,
+    "fields": {
+      "title": "グループ0-漢字読み3",
+      "about": "漢字が表示されるので、正しい読み仮名を書いてください。"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 91,
+    "fields": {
+      "experiment_number": 1,
+      "title": 4,
+      "number": 1,
+      "question": "刈穫",
+      "correct": "がいかく"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 92,
+    "fields": {
+      "experiment_number": 1,
+      "title": 4,
+      "number": 2,
+      "question": "解傭",
+      "correct": "かいよう"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 93,
+    "fields": {
+      "experiment_number": 1,
+      "title": 4,
+      "number": 3,
+      "question": "安佚",
+      "correct": "あんいつ"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 94,
+    "fields": {
+      "experiment_number": 1,
+      "title": 4,
+      "number": 4,
+      "question": "囃子",
+      "correct": "はやし"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 95,
+    "fields": {
+      "experiment_number": 1,
+      "title": 4,
+      "number": 5,
+      "question": "邏卒",
+      "correct": "らそつ"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 96,
+    "fields": {
+      "experiment_number": 1,
+      "title": 4,
+      "number": 6,
+      "question": "関雎",
+      "correct": "かんしょ"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 97,
+    "fields": {
+      "experiment_number": 1,
+      "title": 4,
+      "number": 7,
+      "question": "圧状",
+      "correct": "おうじょう"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 98,
+    "fields": {
+      "experiment_number": 1,
+      "title": 4,
+      "number": 8,
+      "question": "弛張",
+      "correct": "しちょう"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 99,
+    "fields": {
+      "experiment_number": 1,
+      "title": 4,
+      "number": 9,
+      "question": "佚遊",
+      "correct": "いつゆう"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 100,
+    "fields": {
+      "experiment_number": 1,
+      "title": 4,
+      "number": 10,
+      "question": "諛言",
+      "correct": "ゆげん"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 101,
+    "fields": {
+      "experiment_number": 2,
+      "title": 5,
+      "number": 1,
+      "question": "刈穫",
+      "correct": "がいかく"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 102,
+    "fields": {
+      "experiment_number": 2,
+      "title": 5,
+      "number": 2,
+      "question": "解傭",
+      "correct": "かいよう"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 103,
+    "fields": {
+      "experiment_number": 2,
+      "title": 5,
+      "number": 3,
+      "question": "安佚",
+      "correct": "あんいつ"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 104,
+    "fields": {
+      "experiment_number": 2,
+      "title": 5,
+      "number": 4,
+      "question": "囃子",
+      "correct": "はやし"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 105,
+    "fields": {
+      "experiment_number": 2,
+      "title": 5,
+      "number": 5,
+      "question": "邏卒",
+      "correct": "らそつ"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 106,
+    "fields": {
+      "experiment_number": 2,
+      "title": 5,
+      "number": 6,
+      "question": "関雎",
+      "correct": "かんしょ"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 107,
+    "fields": {
+      "experiment_number": 2,
+      "title": 5,
+      "number": 7,
+      "question": "圧状",
+      "correct": "おうじょう"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 108,
+    "fields": {
+      "experiment_number": 2,
+      "title": 5,
+      "number": 8,
+      "question": "弛張",
+      "correct": "しちょう"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 109,
+    "fields": {
+      "experiment_number": 2,
+      "title": 5,
+      "number": 9,
+      "question": "佚遊",
+      "correct": "いつゆう"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 110,
+    "fields": {
+      "experiment_number": 2,
+      "title": 6,
+      "number": 10,
+      "question": "諛言",
+      "correct": "ゆげん"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 111,
+    "fields": {
+      "experiment_number": 3,
+      "title": 6,
+      "number": 1,
+      "question": "刈穫",
+      "correct": "がいかく"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 112,
+    "fields": {
+      "experiment_number": 3,
+      "title": 6,
+      "number": 2,
+      "question": "解傭",
+      "correct": "かいよう"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 113,
+    "fields": {
+      "experiment_number": 3,
+      "title": 6,
+      "number": 3,
+      "question": "安佚",
+      "correct": "あんいつ"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 114,
+    "fields": {
+      "experiment_number": 3,
+      "title": 6,
+      "number": 4,
+      "question": "囃子",
+      "correct": "はやし"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 115,
+    "fields": {
+      "experiment_number": 3,
+      "title": 6,
+      "number": 5,
+      "question": "邏卒",
+      "correct": "らそつ"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 116,
+    "fields": {
+      "experiment_number": 3,
+      "title": 6,
+      "number": 6,
+      "question": "関雎",
+      "correct": "かんしょ"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 117,
+    "fields": {
+      "experiment_number": 3,
+      "title": 6,
+      "number": 7,
+      "question": "圧状",
+      "correct": "おうじょう"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 118,
+    "fields": {
+      "experiment_number": 3,
+      "title": 6,
+      "number": 8,
+      "question": "弛張",
+      "correct": "しちょう"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 119,
+    "fields": {
+      "experiment_number": 3,
+      "title": 6,
+      "number": 9,
+      "question": "佚遊",
+      "correct": "いつゆう"
+    }
+  },
+  {
+    "model": "question.question",
+    "pk": 120,
+    "fields": {
+      "experiment_number": 3,
+      "title": 6,
+      "number": 10,
+      "question": "諛言",
+      "correct": "ゆげん"
+    }
+  }
+]

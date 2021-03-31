@@ -67,9 +67,10 @@ class Data(models.Model):
         verbose_name = '回答データ'
         verbose_name_plural = '回答データ'
 
-    period = models.IntegerField(
+    period = models.CharField(
         verbose_name="期間番号",
-        default=100
+        max_length=50,
+        default="100"
     )
     experiment_number = models.IntegerField(
         verbose_name="実験番号",

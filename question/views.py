@@ -134,9 +134,9 @@ def asnwer_correct(request):
             done = "end!!!"
 
         user = request.user
-        group = request.user.groups.filter(user=user.pk)
+        group = request.user.groups.filter(user=user.id)[0]
         # register data
-        data = Data(period=int(group), experiment_number=question.experiment_number, user=user.username, judge=str(ans),
+        data = Data(period=group, experiment_number=question.experiment_number, user=user.username, judge=str(ans),
                     time=int(answer_time), question_number=question_id,
                     correct=correct_answer, answer=answer_word)
         data.save()
@@ -162,7 +162,8 @@ def data_export(request):
     writer = csv.writer(response)
     for data in Data.objects.all():
         writer.writerow(
-            [data.pk, data.period, data.experiment_number, data.user, data.question_number, data.judge, data.time, data.correct,
+            [data.pk, data.period, data.experiment_number, data.user, data.question_number, data.judge, data.time,
+             data.correct,
              data.answer])
     return response
 
@@ -172,51 +173,47 @@ class PlotView(generic.TemplateView):
     template_name = 'question/plot.html'
 
 
-def plt2png():
-    buf = io.BytesIO()
-    plt.savefig(buf, format='png', dpi=200)
-    s = buf.getvalue()
-    buf.close()
-    return s
-
-
-def plot_average_answer_time():
+def plot():
     experiment_number1 = [int(data.time) for data in Data.objects.filter(experiment_number=1)]
     average_time_1 = int(sum(experiment_number1) / len(experiment_number1))
     experiment_number2 = [int(data.time) for data in Data.objects.filter(experiment_number=2)]
     average_time_2 = int(sum(experiment_number2) / len(experiment_number2))
     experiment_number3 = [int(data.time) for data in Data.objects.filter(experiment_number=3)]
     average_time_3 = int(sum(experiment_number3) / len(experiment_number3))
-    x_data = [average_time_1, average_time_2, average_time_3]
-    plt.plot(x_data, label="average answer time", marker="o", color='red')
-    plt.text(0, average_time_1-1, average_time_1)
-    plt.text(1, average_time_2-1, average_time_2)
-    plt.text(2, average_time_3-1, average_time_3)
-    plt.ylabel("average answer time")
-    plt.xlabel("experiment_number")
-    plt.yticks(range(1, 11))
-    plt.xticks([0, 1, 2], ["experiment 1", "experiment 2", "experiment 3"])
-    plt.legend()
-    plt.show()
+    time_data = [average_time_1, average_time_2, average_time_3]
 
-
-def plot_average_judge():
     judge1 = [int(data.judge) for data in Data.objects.filter(experiment_number=1)]
     judge2 = [int(data.judge) for data in Data.objects.filter(experiment_number=2)]
     judge3 = [int(data.judge) for data in Data.objects.filter(experiment_number=3)]
     judge1 = int(sum(judge1) / len(judge1) * 100)
     judge2 = int(sum(judge2) / len(judge2) * 100)
     judge3 = int(sum(judge3) / len(judge3) * 100)
-    x_data = [judge1, judge2, judge3]
-    plt.plot(x_data, label="average judge", marker="o", color='green')
-    plt.text(0, judge1-5, judge1)
-    plt.text(1, judge2-5, judge2)
-    plt.text(2, judge3-5, judge3)
+    judge_data = [judge1, judge2, judge3]
+
+    plt.figure(figsize=(8, 6))
+
+    plt.subplot(2, 1, 1)
+    plt.plot(time_data, label="average answer time", marker="o", color='red')
+    plt.text(0, average_time_1 - 1, average_time_1)
+    plt.text(1, average_time_2 - 1, average_time_2)
+    plt.text(2, average_time_3 - 1, average_time_3)
+    plt.ylabel("average answer time")
+    plt.xlabel("experiment_number")
+    plt.yticks(range(1, 11))
+    plt.xticks([0, 1, 2], ["experiment 1", "experiment 2", "experiment 3"])
+    plt.legend(loc="upper right")
+
+    plt.subplot(2, 1, 2)
+    plt.plot(judge_data, label="average judge", marker="o", color='green')
+    plt.text(0, judge1 - 10, judge1)
+    plt.text(1, judge2 - 10, judge2)
+    plt.text(2, judge3 - 10, judge3)
     plt.ylabel("average judge")
     plt.xlabel("experiment_number")
     plt.yticks(range(0, 101, 10))
     plt.xticks([0, 1, 2], ["experiment 1", "experiment 2", "experiment 3"])
-    plt.legend()
+    plt.legend(loc="lower right")
+
     plt.show()
 
 
@@ -230,16 +227,8 @@ def plt2svg():
 
 
 # 実行するビュー関数
-def plot_answer_time(request):
-    plot_average_answer_time()
-    svg = plt2svg()  # SVG化
-    plt.cla()  # グラフをリセット
-    response = HttpResponse(svg, content_type='image/svg+xml')
-    return response
-
-
-def plot_judge(request):
-    plot_average_judge()
+def plot_figure(request):
+    plot()
     svg = plt2svg()  # SVG化
     plt.cla()  # グラフをリセット
     response = HttpResponse(svg, content_type='image/svg+xml')
