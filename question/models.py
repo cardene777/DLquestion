@@ -110,4 +110,4 @@ class Data(models.Model):
     )
 
     def __str__(self):
-        return f"{self.experiment_number} {self.user} {self.judge} {self.time} {self.question_number} {self.correct} {self.answer}"
+        return f"{self.period} {self.experiment_number} {self.user} {self.judge} {self.time} {self.question_number} {self.correct} {self.answer}"

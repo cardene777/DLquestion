@@ -11,7 +11,7 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 class DataAdmin(admin.ModelAdmin):
-    list_display = ('experiment_number', 'user', 'judge', 'time', 'question_number', 'correct', 'answer')
+    list_display = ('period', 'experiment_number', 'user', 'judge', 'time', 'question_number', 'correct', 'answer')
 
 
 admin.site.register(QuestionTitle, QuestionTitleAdmin)
