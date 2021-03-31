@@ -1,22 +1,19 @@
 from pathlib import Path
 import os
 import dj_database_url
-import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "4wq%kwlbxy3q!+g%gol=26cg=%(ol_gnya2e!*#lafrzis164)"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://dlquestion.herokuapp.com", "dlquestion.herokuapp.com"]
+ALLOWED_HOSTS = ["'127.0.0.1', '.herokuapp.com'"]
 
 # Application definition
 
@@ -47,7 +44,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,24 +65,20 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dlquestion',
-        'USER': 'dlquestion',
+        'NAME': 'gtquestion',
+        'USER': 'gtquestion',
         'PASSWORD': '',
         'HOST': 'host',
         'PORT': '',
     }
 }
-
-
-db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
-DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -121,9 +114,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # set upload files directory and url path
 MEDIA_URL = "/media/"
@@ -133,4 +130,10 @@ LOGIN_URL = 'accounts:login'  # ログインしていないときのリダイレ
 LOGIN_REDIRECT_URL = 'question:question_title_list'  # ログイン後のリダイレクト先
 LOGOUT_REDIRECT_URL = 'accounts:login'  # ログアウト後のリダイレクト先
 
-django_heroku.settings(locals())
+db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
+DATABASES['default'].update(db_from_env)
+
+if not DEBUG:
+    SECRET_KEY = os.environ['SECRET_KEY']
+    import django_heroku
+    django_heroku.settings(locals())
