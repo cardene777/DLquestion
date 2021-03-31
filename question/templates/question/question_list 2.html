@@ -8,11 +8,14 @@
       <div class="bg-light p-3 p-sm-5 my-4 rounded">
         <h1 class="display-4">QuestionTitleList</h1>
         <hr class="my-4">
-        <p>問題終了</p>
+        <p>問題一覧</p>
       </div>
     </div>
     <div class="container">
-        <h2>問題は以上です。お疲れ様でした。</h2>
-        <a href="{% url 'question:question_title_list' %}">一覧に戻る</a>
+        {{ one_question }}
+        <h2>{{ one_question.title }}</h2>
+        <h2>{{ one_question.question }}</h2>
+        <h2>{{ one_question.correct }}</h2>
+        <h2>{{ length }}</h2>
     </div>
 {% endblock %}

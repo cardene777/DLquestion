@@ -67,9 +67,13 @@ class Data(models.Model):
         verbose_name = '回答データ'
         verbose_name_plural = '回答データ'
 
+    period = models.IntegerField(
+        verbose_name="期間番号",
+        default=100
+    )
     experiment_number = models.IntegerField(
         verbose_name="実験番号",
-        default=1,
+        default=100,
     )
     user = models.CharField(
         verbose_name="ユーザー名",
@@ -85,12 +89,12 @@ class Data(models.Model):
 
     time = models.IntegerField(
         verbose_name="回答時間",
-        default=0
+        default=100
     )
 
     question_number = models.IntegerField(
         verbose_name="問題番号",
-        default=0
+        default=100
     )
 
     correct = models.CharField(

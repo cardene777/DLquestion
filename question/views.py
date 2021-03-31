@@ -134,8 +134,9 @@ def asnwer_correct(request):
             done = "end!!!"
 
         user = request.user
+        group = request.user.groups.filter(user=user.pk)
         # register data
-        data = Data(experiment_number=question.experiment_number, user=user.username, judge=str(ans),
+        data = Data(period=group, experiment_number=question.experiment_number, user=user.username, judge=str(ans),
                     time=int(answer_time), question_number=question_id,
                     correct=correct_answer, answer=answer_word)
         data.save()
@@ -161,7 +162,7 @@ def data_export(request):
     writer = csv.writer(response)
     for data in Data.objects.all():
         writer.writerow(
-            [data.pk, data.experiment_number, data.user, data.question_number, data.judge, data.time, data.correct,
+            [data.pk, data.period, data.experiment_number, data.user, data.question_number, data.judge, data.time, data.correct,
              data.answer])
     return response
 
