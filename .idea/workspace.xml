@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30cf66c9-1332-4e03-9ea7-eb70270ccaa4" name="デフォルト変更リスト" comment="update Procfile">
-      <change afterPath="$PROJECT_DIR$/config/local_settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runtime.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/logout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/question/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/question/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/question/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/question/fixtures/test_data.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/question/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/question/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/question/static/question/css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/question/templates/question/answer_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/question/templates/question/answer_done.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/question/templates/question/plot.html" beforeDir="false" afterPath="$PROJECT_DIR$/question/templates/question/plot.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/question/templates/question/question_answer.html" beforeDir="false" afterPath="$PROJECT_DIR$/question/templates/question/question_answer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/question/templates/question/question_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/question/templates/question/question_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/question/templates/question/question_title_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/question/templates/question/question_title_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/question/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/question/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" />
-    </list>
+    <list default="true" id="30cf66c9-1332-4e03-9ea7-eb70270ccaa4" name="デフォルト変更リスト" comment="update Procfile" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,7 +72,7 @@
       <updated>1617075407484</updated>
       <workItem from="1617075408814" duration="13721000" />
       <workItem from="1617107436403" duration="2280000" />
-      <workItem from="1617109868871" duration="7484000" />
+      <workItem from="1617109868871" duration="7962000" />
     </task>
     <task id="LOCAL-00001" summary="deploy files">
       <created>1617090528881</created>
