@@ -136,7 +136,7 @@ def asnwer_correct(request):
         user = request.user
         group = request.user.groups.filter(user=user.pk)
         # register data
-        data = Data(period=group, experiment_number=question.experiment_number, user=user.username, judge=str(ans),
+        data = Data(period=int(group), experiment_number=question.experiment_number, user=user.username, judge=str(ans),
                     time=int(answer_time), question_number=question_id,
                     correct=correct_answer, answer=answer_word)
         data.save()
