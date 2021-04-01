@@ -129,7 +129,8 @@ def asnwer_correct(request):
             ans = 2
 
         question = Question.objects.get(id=question_id)
-        count_question = len(Question.objects.filter(experiment_number=question.experiment_number))
+        count_question = len(Question.objects.filter(experiment_number=question.experiment_number,
+                                                     title=question.title))
         if question_id + 1 > count_question:
             done = "end!!!"
 
