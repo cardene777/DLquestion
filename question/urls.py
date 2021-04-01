@@ -20,9 +20,9 @@ urlpatterns = [
     path("question_delete/<int:pk>/", QuestionDelete.as_view(), name="question_delete"),
 
     # answer
-    path("answer_question/", answer_question, name="answer_question"),
-    path("answer_correct/", asnwer_correct, name="asnwer_correct"),
-    path("answer_first/", answer_first, name="answer_first"),
+    path("answer_question/<int:question_title_id>/", answer_question, name="answer_question"),
+    path("answer_correct/<int:question_title_id>/", asnwer_correct, name="asnwer_correct"),
+    path("answer_first/<int:question_title_id>/", answer_first, name="answer_first"),
     path("answer_done/", AnswerDone.as_view(), name="answer_done"),
     path("export/", data_export, name="export"),
 

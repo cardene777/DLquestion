@@ -40,18 +40,12 @@
         <h2>{{ question_title.about }}</h2>
         <div class="btns">
             <p>
-                <a href="{% url 'question:answer_first' %}" class="btn" style="background-color: #77c7e2; color: #303f42;" tabindex="-1" role="button" aria-disabled="true">
+                <a href="{% url 'question:answer_first' question_title_id=question_title.id %}" class="btn" style="background-color: #77c7e2; color: #303f42;" tabindex="-1" role="button" aria-disabled="true">
                     問題スタート
                     <i class="fas fa-info-circle"></i>
                 </a>
             </p>
         </div>
-<!--        {% for question in question_title.title_question.all %}-->
-<!--            <p>{{ forloop.counter }}</p>-->
-<!--            <p>{{ title }}</p>-->
-<!--            <p>{{ question }}</p>-->
-<!--            <p>{{ correct }}</p>-->
-<!--        {% endfor %}-->
     </div>
 
 {% endblock %}

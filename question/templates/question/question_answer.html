@@ -14,7 +14,7 @@
     <div class="container">
         {% if message == '' %}
             <div class="answer-form">
-                <form action="{% url 'question:asnwer_correct' %}" method="post">
+                <form action="{% url 'question:asnwer_correct' question_title_id=question_title_id %}" method="post">
                     {% csrf_token %}
                     <h1>{{ question.id }}</h1>
                     <div class="field">
@@ -29,16 +29,44 @@
                     <input type="submit" value="解答" style="margin: 5px 0" onclick='return confirm("送信しますか？");'>
                 </form>
             </div>
+
+            <script>
+                let count = 0;
+                const countUp = () =>{
+                    console.log(count++);
+                }
+                const intervalId = setInterval(() =>{
+                    countUp();
+                    if(count > 15){　
+                        clearInterval(intervalId);　//intervalIdをclearIntervalで指定している
+                        alert('回答ボタンを押してください！！！');
+                    }
+                }, 1000);
+            </script>
         {% else %}
             {% if done == "" %}
                 <div class="answer-form">
-                    <form action="{% url 'question:answer_question' %}" method="post">
+                    <form action="{% url 'question:answer_question' question_title_id=question_title_id %}" method="post">
                         {% csrf_token %}
                         <h2>{{ message }}</h2>
                         <input hidden type="text" name="id" value="{{ question.id }}">
                         <input type="submit" value="次の問題へ" style="margin: 5px 0">
                     </form>
                 </div>
+
+                <script>
+                    let count = 0;
+                    const countUp = () =>{
+                        console.log(count++);
+                    }
+                    const intervalId = setInterval(() =>{
+                        countUp();
+                        if(count > 10){　
+                            clearInterval(intervalId);　//intervalIdをclearIntervalで指定している
+                            alert('次の問題に進んでください！！！');
+                        }
+                    }, 1000);
+                </script>
             {% else %}
                 <h2>{{ message }}</h2>
                 <a href="{% url 'question:answer_done' %}">問題終了</a>
