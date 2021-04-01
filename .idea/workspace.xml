@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30cf66c9-1332-4e03-9ea7-eb70270ccaa4" name="デフォルト変更リスト" comment="update Procfile" />
+    <list default="true" id="30cf66c9-1332-4e03-9ea7-eb70270ccaa4" name="デフォルト変更リスト" comment="update Procfile">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Procfile 2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media 2/images/question.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/question/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/question/forms 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/question/static/question/css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static 2/css/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,6 +83,7 @@
       <workItem from="1617075408814" duration="13721000" />
       <workItem from="1617107436403" duration="2280000" />
       <workItem from="1617109868871" duration="25407000" />
+      <workItem from="1617237938507" duration="879000" />
     </task>
     <task id="LOCAL-00001" summary="deploy files">
       <created>1617090528881</created>
