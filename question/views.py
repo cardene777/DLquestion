@@ -126,7 +126,7 @@ def asnwer_correct(request):
             ans = 1
         else:
             message = f'不正解です。正しい答えは「{correct_answer}」です。'
-            ans = 2
+            ans = 0
 
         question = Question.objects.get(id=question_id)
         count_question = len(Question.objects.filter(experiment_number=question.experiment_number,
