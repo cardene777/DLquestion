@@ -80,36 +80,38 @@ class QuestionList(generic.ListView):
         return context
 
 
-def answer_first(request):
+def answer_first(request, question_title_id):
     message = ''
-    question_id = 0
-    question = Question.objects.get(id=question_id + 1)
+    question_id = Question.objects.filter(title=question_title_id)[0].id
+    question = Question.objects.get(title=question_title_id, id=question_id)
     start_time = time.time()
     params = {
         'question': question,
         'message': message,
         "start_time": start_time,
+        "question_title_id": question_title_id,
     }
     return render(request, 'question/question_answer.html', params)
 
 
-def answer_question(request):
+def answer_question(request, question_title_id):
     message = ''
     done = ""
     if request.method == 'POST':
         start_time = time.time()
-        question_id = int(request.POST["id"])
-        question = Question.objects.get(id=question_id + 1)
+        question_id = int(request.POST["id"]) + 1
+        question = Question.objects.get(title=question_title_id, id=question_id)
 
         params = {
             'question': question,
             'message': message,
             "start_time": start_time,
+            "question_title_id": question_title_id
         }
         return render(request, 'question/question_answer.html', params)
 
 
-def asnwer_correct(request):
+def asnwer_correct(request, question_title_id):
     message = ''
     done = ""
     if request.method == 'POST':
@@ -131,7 +133,8 @@ def asnwer_correct(request):
         question = Question.objects.get(id=question_id)
         count_question = len(Question.objects.filter(experiment_number=question.experiment_number,
                                                      title=question.title))
-        if question_id + 1 > count_question:
+        first_question_id = Question.objects.filter(title=question_title_id)[0].id
+        if question_id + 1 >= first_question_id + count_question:
             done = "end!!!"
 
         user = request.user
@@ -146,7 +149,8 @@ def asnwer_correct(request):
             'question': question,
             'message': message,
             "answer_time": answer_time,
-            "done": done
+            "done": done,
+            "question_title_id": question_title_id,
         }
         return render(request, 'question/question_answer.html', params)
 
@@ -250,8 +254,8 @@ def select_plot(request):
         groups = Data.objects.all().values_list('period', flat=True).order_by('period').distinct()
         params = {
             'plot_message': plot_message,
-            'group': group,
-            'groups': groups,
+            'group': group,   # 100
+            'groups': groups,   # [0, 100]
         }
         return render(request, 'question/plot.html', params)
 
