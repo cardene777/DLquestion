@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', "gtquestions.herokuapp.com"]
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', "gtquestion.herokuapp.com"]
 
 # Application definition
 
@@ -72,8 +72,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'gtquestion',
-        'USER': 'gtquestion',
+        'NAME': 'gtquestions',
+        'USER': 'gtquestions',
         'PASSWORD': '',
         'HOST': 'host',
         'PORT': '',
