@@ -126,7 +126,7 @@ def asnwer_correct(request):
             ans = 1
         else:
             message = f'不正解です。正しい答えは「{correct_answer}」です。'
-            ans = 2
+            ans = 0
 
         question = Question.objects.get(id=question_id)
         count_question = len(Question.objects.filter(experiment_number=question.experiment_number,
@@ -169,23 +169,29 @@ def data_export(request):
     return response
 
 
-class PlotView(generic.TemplateView):
+class PlotView(generic.ListView):
     model = Data
     template_name = 'question/plot.html'
+    context_object_name = "groups"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["groups"] = Data.objects.all().values_list('period', flat=True).order_by('period').distinct()
+        return context
 
 
-def plot():
-    experiment_number1 = [int(data.time) for data in Data.objects.filter(experiment_number=1)]
+def plot(select_group):
+    experiment_number1 = [int(data.time) for data in Data.objects.filter(experiment_number=1, period=select_group)]
     average_time_1 = int(sum(experiment_number1) / len(experiment_number1))
-    experiment_number2 = [int(data.time) for data in Data.objects.filter(experiment_number=2)]
+    experiment_number2 = [int(data.time) for data in Data.objects.filter(experiment_number=2, period=select_group)]
     average_time_2 = int(sum(experiment_number2) / len(experiment_number2))
-    experiment_number3 = [int(data.time) for data in Data.objects.filter(experiment_number=3)]
+    experiment_number3 = [int(data.time) for data in Data.objects.filter(experiment_number=3, period=select_group)]
     average_time_3 = int(sum(experiment_number3) / len(experiment_number3))
     time_data = [average_time_1, average_time_2, average_time_3]
 
-    judge1 = [int(data.judge) for data in Data.objects.filter(experiment_number=1)]
-    judge2 = [int(data.judge) for data in Data.objects.filter(experiment_number=2)]
-    judge3 = [int(data.judge) for data in Data.objects.filter(experiment_number=3)]
+    judge1 = [int(data.judge) for data in Data.objects.filter(experiment_number=1, period=select_group)]
+    judge2 = [int(data.judge) for data in Data.objects.filter(experiment_number=2, period=select_group)]
+    judge3 = [int(data.judge) for data in Data.objects.filter(experiment_number=3, period=select_group)]
     judge1 = int(sum(judge1) / len(judge1) * 100)
     judge2 = int(sum(judge2) / len(judge2) * 100)
     judge3 = int(sum(judge3) / len(judge3) * 100)
@@ -228,12 +234,26 @@ def plt2svg():
 
 
 # 実行するビュー関数
-def plot_figure(request):
-    plot()
+def plot_figure(request, select_group):
+    plot(select_group)
     svg = plt2svg()  # SVG化
     plt.cla()  # グラフをリセット
     response = HttpResponse(svg, content_type='image/svg+xml')
     return response
+
+
+def select_plot(request):
+    plot_message = ""
+    if request.method == 'POST':
+        group = request.POST["select"]
+        plot_message = "OK"
+        groups = Data.objects.all().values_list('period', flat=True).order_by('period').distinct()
+        params = {
+            'plot_message': plot_message,
+            'group': group,
+            'groups': groups,
+        }
+        return render(request, 'question/plot.html', params)
 
 
 class QuestionDetail(generic.DetailView):

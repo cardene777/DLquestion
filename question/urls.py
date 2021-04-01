@@ -28,5 +28,6 @@ urlpatterns = [
 
     # plot
     path("plot_list/", PlotView.as_view(), name="plot_list"),
-    path("plot", plot_figure, name="plot"),
+    path("plot/<str:select_group>/", plot_figure, name="plot"),
+    path("select_plot/", select_plot, name="select_plot"),
 ]

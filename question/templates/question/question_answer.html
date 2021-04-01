@@ -26,7 +26,7 @@
                     <div class="field">
                         <label>解答: </label><input type="text" name="answer" id="answer">
                     </div>
-                    <input type="submit" value="解答" style="margin: 5px 0">
+                    <input type="submit" value="解答" style="margin: 5px 0" onclick='return confirm("送信しますか？");'>
                 </form>
             </div>
         {% else %}
