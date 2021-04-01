@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30cf66c9-1332-4e03-9ea7-eb70270ccaa4" name="デフォルト変更リスト" comment="update Procfile" />
+    <list default="true" id="30cf66c9-1332-4e03-9ea7-eb70270ccaa4" name="デフォルト変更リスト" comment="update Procfile">
+      <change beforePath="$PROJECT_DIR$/question/templates/question/question_answer.html" beforeDir="false" afterPath="$PROJECT_DIR$/question/templates/question/question_answer.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +75,7 @@
       <workItem from="1617075408814" duration="13721000" />
       <workItem from="1617107436403" duration="2280000" />
       <workItem from="1617109868871" duration="25407000" />
-      <workItem from="1617237938507" duration="24693000" />
+      <workItem from="1617237938507" duration="25320000" />
     </task>
     <task id="LOCAL-00001" summary="deploy files">
       <created>1617090528881</created>
