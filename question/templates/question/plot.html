@@ -12,7 +12,21 @@
         </div>
     </div>
     <div class="container">
-        <img src="{% url 'question:plot' %}" width=800 height=800 alt="プロット画像">
+        <form method="post" action="{% url 'question:select_plot' %}">
+            {% csrf_token %}
+            <label for="select">実験期間：</label>
+            <select id="select" name="select">
+                {% for group in groups %}
+                    <option value="{{ group }}">{{ group }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="表示">
+        </form>
     </div>
+    {% if plot_message == "OK" %}
+        <div class="container">
+            <img src="{% url 'question:plot' select_group=group %}" width=800 height=800 alt="プロット画像">
+        </div>
+    {% endif %}
 
 {% endblock %}

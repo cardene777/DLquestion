@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="30cf66c9-1332-4e03-9ea7-eb70270ccaa4" name="デフォルト変更リスト" comment="update Procfile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/question/templates/question/plot.html" beforeDir="false" afterPath="$PROJECT_DIR$/question/templates/question/plot.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/question/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/question/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/question/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/question/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +78,7 @@
       <workItem from="1617075408814" duration="13721000" />
       <workItem from="1617107436403" duration="2280000" />
       <workItem from="1617109868871" duration="25407000" />
-      <workItem from="1617237938507" duration="3431000" />
+      <workItem from="1617237938507" duration="11540000" />
     </task>
     <task id="LOCAL-00001" summary="deploy files">
       <created>1617090528881</created>
