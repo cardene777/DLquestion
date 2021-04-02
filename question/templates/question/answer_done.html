@@ -13,6 +13,9 @@
     </div>
     <div class="container">
         <h2>問題は以上です。お疲れ様でした。</h2>
-        <a href="{% url 'question:question_title_list' %}">一覧に戻る</a>
+        <a href="{% url 'question:question_title_list' %}" class="btn" style="background-color: #77c7e2; color: #303f42;" tabindex="-1" role="button" aria-disabled="true">
+            一覧に戻る
+            <i class="fas fa-backward"></i>
+        </a>
     </div>
 {% endblock %}
