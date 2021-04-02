@@ -85,11 +85,13 @@ def answer_first(request, question_title_id):
     question_id = Question.objects.filter(title=question_title_id)[0].id
     question = Question.objects.get(title=question_title_id, id=question_id)
     start_time = time.time()
+    question_id = question.id - question_id + 1
     params = {
         'question': question,
         'message': message,
         "start_time": start_time,
         "question_title_id": question_title_id,
+        "question_id": question_id
     }
     return render(request, 'question/question_answer.html', params)
 
@@ -100,13 +102,17 @@ def answer_question(request, question_title_id):
     if request.method == 'POST':
         start_time = time.time()
         question_id = int(request.POST["id"]) + 1
+        question_new_id = int(request.POST["question_id"])
         question = Question.objects.get(title=question_title_id, id=question_id)
+
+        question_id = question_new_id + 1
 
         params = {
             'question': question,
             'message': message,
             "start_time": start_time,
-            "question_title_id": question_title_id
+            "question_title_id": question_title_id,
+            "question_id": question_id,
         }
         return render(request, 'question/question_answer.html', params)
 
@@ -145,12 +151,15 @@ def asnwer_correct(request, question_title_id):
                     correct=correct_answer, answer=answer_word)
         data.save()
 
+        question_id = question.id - first_question_id + 1
+
         params = {
             'question': question,
             'message': message,
             "answer_time": answer_time,
             "done": done,
             "question_title_id": question_title_id,
+            "question_id": question_id
         }
         return render(request, 'question/question_answer.html', params)
 

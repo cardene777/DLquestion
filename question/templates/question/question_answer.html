@@ -6,9 +6,9 @@
 {% block content %}
     <div class="container">
       <div class="bg-light p-3 p-sm-5 my-4 rounded">
-        <h1 class="display-4">QuestionTitleList</h1>
+        <h1 class="display-4">Question</h1>
         <hr class="my-4">
-        <p>問題一覧</p>
+        <h2>問題{{ question_id }}</h2>
       </div>
     </div>
     <div class="container">
@@ -16,7 +16,7 @@
             <div class="answer-form">
                 <form action="{% url 'question:asnwer_correct' question_title_id=question_title_id %}" method="post">
                     {% csrf_token %}
-                    <h1>{{ question.id }}</h1>
+                    <p id="answer_timer">15</p>
                     <div class="field">
                         <p style="margin: 5px 0">問題: {{ question.question }}</p>
                         <input hidden type="text" name="question" value="{{ question.question }}">
@@ -27,6 +27,7 @@
                         <label>解答: </label><input type="text" name="answer" id="answer">
                     </div>
                     <input type="submit" value="解答" style="margin: 5px 0" onclick='return confirm("送信しますか？");'>
+                    <input hidden id="answer-submit" type="submit" value="解答" style="margin: 5px 0">
                 </form>
             </div>
 
@@ -37,9 +38,11 @@
                 }
                 const intervalId = setInterval(() =>{
                     countUp();
+                    document.querySelector('#answer_timer').textContent=16-count;
                     if(count > 15){　
                         clearInterval(intervalId);　//intervalIdをclearIntervalで指定している
-                        alert('回答ボタンを押してください！！！');
+                        {#alert('回答ボタンを押してください！！！');#}
+                        document.getElementById('answer-submit').click();
                     }
                 }, 1000);
             </script>
@@ -48,9 +51,11 @@
                 <div class="answer-form">
                     <form action="{% url 'question:answer_question' question_title_id=question_title_id %}" method="post">
                         {% csrf_token %}
+                        <p id="next_question_timer">5</p>
                         <h2>{{ message }}</h2>
                         <input hidden type="text" name="id" value="{{ question.id }}">
-                        <input type="submit" value="次の問題へ" style="margin: 5px 0">
+                        <input hidden type="text" name="question_id" value="{{ question_id }}">
+                        <input hidden id="nexr-question" type="submit" value="次の問題へ" style="margin: 5px 0">
                     </form>
                 </div>
 
@@ -61,15 +66,20 @@
                     }
                     const intervalId = setInterval(() =>{
                         countUp();
-                        if(count > 10){　
+                        document.querySelector('#next_question_timer').textContent=6-count;
+                        if(count > 5){　
                             clearInterval(intervalId);　//intervalIdをclearIntervalで指定している
-                            alert('次の問題に進んでください！！！');
+                            {#alert('次の問題に進んでください！！！');#}
+                            document.getElementById('nexr-question').click();
                         }
                     }, 1000);
                 </script>
             {% else %}
                 <h2>{{ message }}</h2>
-                <a href="{% url 'question:answer_done' %}">問題終了</a>
+                <a href="{% url 'question:answer_done' %}" class="btn" style="background-color: #77c7e2; color: #303f42;" tabindex="-1" role="button" aria-disabled="true">
+                    問題終了
+                    <i class="fas fa-hourglass-end"></i>
+                </a>
             {% endif %}
         {% endif %}
     </div>
