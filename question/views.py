@@ -129,7 +129,7 @@ def asnwer_correct(request, question_title_id):
         answer_time = end_time - start_time
 
         correct_answer = Question.objects.filter(question=question_word).values_list('correct', flat=True)[0]
-        if answer_word != "" and answer_word in correct_answer:
+        if answer_word != "" and answer_word == correct_answer:
             message = f'正解です。'
             ans = 1
         else:
