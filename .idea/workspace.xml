@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30cf66c9-1332-4e03-9ea7-eb70270ccaa4" name="デフォルト変更リスト" comment="update Procfile" />
+    <list default="true" id="30cf66c9-1332-4e03-9ea7-eb70270ccaa4" name="デフォルト変更リスト" comment="update Procfile">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/question/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/question/admin.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +33,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -73,7 +79,9 @@
       <workItem from="1617075408814" duration="13721000" />
       <workItem from="1617107436403" duration="2280000" />
       <workItem from="1617109868871" duration="25407000" />
-      <workItem from="1617237938507" duration="30596000" />
+      <workItem from="1617237938507" duration="34888000" />
+      <workItem from="1617338046428" duration="10000" />
+      <workItem from="1617343860607" duration="13230000" />
     </task>
     <task id="LOCAL-00001" summary="deploy files">
       <created>1617090528881</created>
