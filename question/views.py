@@ -219,7 +219,7 @@ def plot(select_group):
     plt.text(2, average_time_3 - 1, average_time_3)
     plt.ylabel("average answer time")
     plt.xlabel("experiment_number")
-    plt.yticks(range(1, 11))
+    plt.yticks(range(1, 16))
     plt.xticks([0, 1, 2], ["experiment 1", "experiment 2", "experiment 3"])
     plt.legend(loc="upper right")
 
